@@ -61,7 +61,7 @@ int main()
 }
 ```
 
-### stringstream
+### 了解一下stringstream
 stringstream是可以把一个字符串初始化成一个类似cin的东西，从中读出任意我们需要的格式的信息。
 
 比如，我们需要读入两个int数字，一个字符串，一个double类型的数字。
