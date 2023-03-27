@@ -60,3 +60,36 @@ int main()
     return 0;
 }
 ```
+
+### stringstream
+stringstream是可以把一个字符串初始化成一个类似cin的东西，从中读出任意我们需要的格式的信息。
+
+比如，我们需要读入两个int数字，一个字符串，一个double类型的数字。
+
+ssin可以帮助我们从一个字符串中，提取我们需要的各种（格式）信息。
+```c++
+#include <iostream>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+	string s;
+	getline(cin, s);
+	
+	stringstream ssin(s);
+	
+	int a, b;
+	string str;
+	double c;
+	
+	ssin>> a >> str >> b >> c;
+	
+	cout << a << endl << str << endl << b << endl << c << endl; 
+	
+	return 0;	
+} 
+```
+
+⚠ ssin(s)的名字可以任意取，也可以是“stringstream fdsa(s);”，重点是把它初始化。
