@@ -33,7 +33,7 @@ I want someone to help you
 
 ### 思路
 
-首先把整一行都进来，然后把每一个字符串a换成字符串b。
+首先把整一行s读进来，找出s当中的a，然后把每一个字符串a换成字符串b。
 
 ### 代码
 ```c++
@@ -50,7 +50,6 @@ int main()
     getline(cin, s);
     cin >> a >> b;
     
-    //找出s当中的a
     stringstream ssin(s);   // 把 字符串 初始化为 字符串流 
                             // 把ssin当成cin。相当于从字符串中读信息
     string str;
