@@ -93,3 +93,27 @@ int main()
 ```
 
 ⚠ ssin(s)的名字可以任意取，也可以是“stringstream fdsa(s);”，重点是把它初始化。
+
+### scanf的方式
+```c++
+#include <cstdio>
+#include <iostream>
+#include <sstream>
+
+using namespace std;
+
+int main()
+{
+    char s[1000];
+    fgets(s, 1000, stdin);
+
+    int a, b;
+    char str[1000];
+    double c;
+    
+    sscanf(s, "%d%s%d%lf", &a, str, &b, &c);
+    
+    printf("%d\n%s\n%d\n%lf\n", a, str, b, c);
+    return 0;	
+} 
+```
