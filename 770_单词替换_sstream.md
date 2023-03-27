@@ -75,26 +75,26 @@ using namespace std;
 
 int main()
 {
-	string s;
-	getline(cin, s);
-	
-	stringstream ssin(s);
-	
-	int a, b;
-	string str;
-	double c;
-	
-	ssin>> a >> str >> b >> c;
-	
-	cout << a << endl << str << endl << b << endl << c << endl; 
-	
-	return 0;	
+ string s;
+ getline(cin, s);
+ 
+ stringstream ssin(s);
+ 
+ int a, b;
+ string str;
+ double c;
+ 
+ ssin>> a >> str >> b >> c;
+ 
+ cout << a << endl << str << endl << b << endl << c << endl; 
+ 
+ return 0; 
 } 
 ```
 
 ⚠ ssin(s)的名字可以任意取，也可以是“stringstream fdsa(s);”，重点是把它初始化。
 
-### scanf的方式
+### sscanf的方式(seldom)
 ```c++
 #include <cstdio>
 #include <iostream>
@@ -111,9 +111,10 @@ int main()
     char str[1000];
     double c;
     
-    sscanf(s, "%d%s%d%lf", &a, str, &b, &c);
+    sscanf(s, "%d%s%d%lf", &a, str, &b, &c); // 第一个参数是需要读的字符串，后面就跟scanf一样了
     
     printf("%d\n%s\n%d\n%lf\n", a, str, b, c);
-    return 0;	
+    return 0; 
 } 
 ```
+⚠ 在不知道有多少个字的时候，sscanf其实不是很好写。它用的不是很多。
