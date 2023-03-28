@@ -118,3 +118,5 @@ int main()
 } 
 ```
 ⚠ 在不知道有多少个字的时候，sscanf其实不是很好写。它用的不是很多。
+
+扩展：https://www.acwing.com/activity/content/problem/content/1964/
