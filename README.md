@@ -26,3 +26,6 @@
 
 [779*_最长公共字符串后缀_枚举](https://github.com/ChaosuiPeng/Note_AcWing/blob/main/779*_%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%90%8E%E7%BC%80_%E6%9E%9A%E4%B8%BE.md)
 
+### 其他
+
+[输出程序运行时间](https://github.com/ChaosuiPeng/Note_AcWing/blob/main/%E8%BE%93%E5%87%BA%E7%A8%8B%E5%BA%8F%E8%BF%90%E8%A1%8C%E6%97%B6%E9%97%B4.md)
