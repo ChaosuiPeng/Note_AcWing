@@ -1,6 +1,7 @@
 # Note_AcWing
 
 ## 5. 字符串
+
  [字符串讲义](https://github.com/ChaosuiPeng/Note_AcWing/blob/main/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
  
 【习题】
