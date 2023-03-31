@@ -2,10 +2,6 @@
 
 ## 5. 字符串
 
- [字符串讲义](https://github.com/ChaosuiPeng/Note_AcWing/blob/main/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
- 
-【习题】
- 
 [字符串讲义](https://github.com/ChaosuiPeng/Note_AcWing/blob/main/%E5%AD%97%E7%AC%A6%E4%B8%B2.md)
 
 [756_蛇形矩阵_偏移量](https://github.com/ChaosuiPeng/Note_AcWing/blob/main/756_%E8%9B%87%E5%BD%A2%E7%9F%A9%E9%98%B5_%E5%81%8F%E7%A7%BB%E9%87%8F.md)
