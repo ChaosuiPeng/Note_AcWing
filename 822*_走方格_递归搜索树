@@ -1,0 +1,84 @@
+### 822. 走方格
+
+给定一个 n×m 的方格阵，沿着方格的边线走，从左上角 (0,0) 开始，每次只能往右或者往下走一个单位距离，问走到右下角 (n,m) 一共有多少种不同的走法。
+
+**输入格式**
+
+共一行，包含两个整数 n 和 m。
+
+**输出格式**
+
+共一行，包含一个整数，表示走法数量。
+
+**数据范围**
+
+1≤n,m≤10
+
+**输入样例：** 
+
+2 3
+
+**输出样例：** 
+
+10
+
+### 思路1：排列组合
+
+所有移动的可能 / （向右的可能 * 向下的可能）
+
+### 代码
+```c++
+#include <iostream>
+
+using namespace std;
+
+unsigned long fact(int n)
+{
+    unsigned long r = 1;
+    for (int i = 1; i <= n; i ++) r *= i;
+    return r;
+}
+int main()
+{
+    int right, down;
+    cin >> down >> right;
+    int total = down + right;
+    // total! / right!*down!
+    cout << fact(total) / (fact(right) * fact(down));
+    return 0;
+}
+```
+
+### 思路2：递归搜索树
+
+把行列的边界作为判断条件，可以继续走就继续向下或者向右。
+
+### 代码
+```c++
+#include <iostream>
+
+using namespace std;
+
+int n, m;
+int ans;
+
+void dfs(int x, int y)
+{
+    if (x == n && y == m) ans ++ ;
+    else
+    {
+        if (y < m) dfs(x, y + 1);
+        if (x < n) dfs(x + 1, y);
+    }
+}
+
+int main()
+{
+    cin >> n >> m;
+    dfs(0, 0);
+    cout << ans << endl;
+
+    return 0;
+}
+```
+ 
