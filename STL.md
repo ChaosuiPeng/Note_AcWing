@@ -99,11 +99,18 @@ top     // 查询堆顶元素（最大值）
 ```c++
 push    // 向栈顶插入
 pop     // 弹出栈顶元素
+    
+stack‹int> stk;
+stk.push (1); 
+stk.top(); 
+stk.pop();
 ```
   
 ## 4. #include \<deque>
 双端队列deque是一个支持在两端高效插入或删除元素的连续线性存储空间。它就像是vector和queue的结合。与vector相比，deque在头部增删元素仅需要 O(1)O(1) 的时间；与queue相比，deque像数组一样支持随机访问。
 ```c++
+    deque<int> a;
+    a[0];
 []              // 随机访问
 begin/end       // 返回deque的头/尾迭代器
 front/back      // 队头/队尾元素
