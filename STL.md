@@ -1,5 +1,5 @@
 ## 1. #include \<vector>
-vector是变长数组，支持随机访问，不支持在任意位置 O(1)O(1) 插入。为了保证效率，元素的增删一般应该在末尾进行。
+vector是变长数组，支持随机访问，不支持在任意位置 O(1) 插入。为了保证效率，元素的增删一般应该在末尾进行。
 
 ### 1.1 声明
 ```c++
@@ -11,7 +11,7 @@ vector<rec> c;      // 自定义的结构体类型也可以保存在vector中
 ```
     
 ### 1.2 size/empty
-size函数返回vector的实际长度（包含的元素个数），empty函数返回一个bool类型，表明vector是否为空。二者的时间复杂度都是 O(1)O(1)。
+size函数返回vector的实际长度（包含的元素个数），empty函数返回一个bool类型，表明vector是否为空。二者的时间复杂度都是 O(1)。
     
 所有的STL容器都支持这两个方法，含义也相同，之后我们就不再重复给出。
 
@@ -28,9 +28,9 @@ vector<int>::iterator it;
 vector的迭代器是“随机访问迭代器”，可以把vector的迭代器与一个整数相加减，其行为和指针的移动类似。可以把vector的两个迭代器相减，其结果也和指针相减类似，得到两个迭代器对应下标之间的距离。
 
 ### 1.5 begin/end
-begin函数返回指向vector中第一个元素的迭代器。例如a是一个非空的vector，则*a.begin()与a[0]的作用相同。
+begin函数返回指向vector中第一个元素的迭代器。例如a是一个非空的vector，则\*a.begin()与a[0]的作用相同。
 
-所有的容器都可以视作一个“前闭后开”的结构，end函数返回vector的尾部，即第n 个元素再往后的“边界”。*a.end()与a[n]都是越界访问，其中n = a.size()。
+所有的容器都可以视作一个“前闭后开”的结构，end函数返回vector的尾部，即第n 个元素再往后的“边界”。\*a.end()与a[n]都是越界访问，其中n = a.size()。
 
 下面三份代码都遍历了vector<int> a，并输出它的所有元素。
 ```c++
@@ -149,27 +149,31 @@ s.begin()是指向集合中最小元素的迭代器。
 s.end()是指向集合中最大元素的下一个位置的迭代器。换言之，就像vector一样，是一个“前闭后开”的形式。因此-- s.end()是指向集合中最大元素的迭代器。
 
 ### 5.5 insert
-s.insert(x)把一个元素x插入到集合s中，时间复杂度为 O(logn)O(logn)。
+s.insert(x)把一个元素x插入到集合s中，时间复杂度为 O(logn)。
 
 在set中，若元素已存在，则不会重复插入该元素，对集合的状态无影响。
 
 ### 5.6 find
-s.find(x)在集合s中查找等于x的元素，并返回指向该元素的迭代器。若不存在，则返回s.end()。时间复杂度为 O(logn)O(logn)。
+s.find(x)在集合s中查找等于x的元素，并返回指向该元素的迭代器。若不存在，则返回s.end()。时间复杂度为 O(logn)。
+```c++
+set<int> a; // 元素不能重复
+if (a.find(x) == a.end()) // 判断x在a中是否存在
+```
 
 ### 5.7 lower_bound/upper_bound
-这两个函数的用法与find类似，但查找的条件略有不同，时间复杂度为 O(logn)O(logn)。
+这两个函数的用法与find类似，但查找的条件略有不同，时间复杂度为 O(logn)。
 
 s.lower_bound(x)查找大于等于x的元素中最小的一个，并返回指向该元素的迭代器。
 
 s.upper_bound(x)查找大于x的元素中最小的一个，并返回指向该元素的迭代器。
 
 ### 5.8 erase
-设it是一个迭代器，s.erase(it)从s中删除迭代器it指向的元素，时间复杂度为 O(logn)O(logn)。
+设it是一个迭代器，s.erase(it)从s中删除迭代器it指向的元素，时间复杂度为 O(logn)。
 
-设x是一个元素，s.erase(x)从s中删除所有等于x的元素，时间复杂度为 O(k+logn)O(k+logn)，其中 kk 是被删除的元素个数。
+设x是一个元素，s.erase(x)从s中删除所有等于x的元素，时间复杂度为 O(k+logn)，其中 k 是被删除的元素个数。
 
 ### 5.9 count
-s.count(x)返回集合s中等于x的元素个数，时间复杂度为 O(k+logn)O(k+logn)，其中 kk 为元素x的个数。
+s.count(x)返回集合s中等于x的元素个数，时间复杂度为 O(k+logn)，其中 k 为元素x的个数。
 
 ## 6. #include \<map>
 map容器是一个键值对key-value的映射，其内部实现是一棵以key为关键码的红黑树。Map的key和value可以是任意类型，其中key必须定义小于号运算符。
@@ -194,7 +198,7 @@ map<pair<int, int>, vector<int>> test;
 h.find(x)在变量名为h的map中查找key为x的二元组。
 
 ### 6.5 []操作符
-h[key]返回key映射的value的引用，时间复杂度为 O(logn)O(logn)。
+h[key]返回key映射的value的引用，时间复杂度为 O(logn)。
 
 []操作符是map最吸引人的地方。我们可以很方便地通过h[key]来得到key对应的value，还可以对h[key]进行赋值操作，改变key对应的value。
 
