@@ -32,13 +32,18 @@ begin函数返回指向vector中第一个元素的迭代器。例如a是一个�
 
 所有的容器都可以视作一个“前闭后开”的结构，end函数返回vector的尾部，即第n 个元素再往后的“边界”。*a.end()与a[n]都是越界访问，其中n = a.size()。
 
-下面两份代码都遍历了vector<int> a，并输出它的所有元素。
+下面三份代码都遍历了vector<int> a，并输出它的所有元素。
 ```c++
 for (int i = 0; i < a.size(); i ++)
     cout << a[i] << endl;
-
-for (vector<int>::iterator it = a.begin(); it != a.end(); it ++)
+```
+```c++
+for (vector<int>::iterator it = a.begin(); it != a.end(); it ++)    // 或者直接写auto i = a.begin()
     cout << *it << endl;
+```
+```c++
+for (int x : a)
+    cout << x << endl;
 ```
   
 ### 1.6 front/back
