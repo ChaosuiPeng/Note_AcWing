@@ -157,7 +157,7 @@ s.upper_bound(x)查找大于x的元素中最小的一个，并返回指向该元
 ### 5.9 count
 s.count(x)返回集合s中等于x的元素个数，时间复杂度为 O(k+logn)O(k+logn)，其中 kk 为元素x的个数。
 
-## 6. #include <map>
+## 6. #include \<map>
 map容器是一个键值对key-value的映射，其内部实现是一棵以key为关键码的红黑树。Map的key和value可以是任意类型，其中key必须定义小于号运算符。
 
 ###6.1 声明
