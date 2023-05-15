@@ -58,7 +58,7 @@ a.push_back(x)把元素x插入到vector a的尾部。
     
 b.pop_back()删除vector a的最后一个元素。
 
-## 2. #include <queue>
+## 2. #include \<queue>
     
 头文件queue主要包括循环队列queue和优先队列priority_queue两个容器。
 
@@ -86,7 +86,7 @@ pop     // 删除堆顶元素
 top     // 查询堆顶元素（最大值）
 ```
     
-## 3. #include <stack>
+## 3. #include \<stack>
 头文件stack包含栈。声明和前面的容器类似。
     
 ```c++
@@ -94,7 +94,7 @@ push    // 向栈顶插入
 pop     // 弹出栈顶元素
 ```
   
-## 4. #include <deque>
+## 4. #include \<deque>
 双端队列deque是一个支持在两端高效插入或删除元素的连续线性存储空间。它就像是vector和queue的结合。与vector相比，deque在头部增删元素仅需要 O(1)O(1) 的时间；与queue相比，deque像数组一样支持随机访问。
     
 ```c++
