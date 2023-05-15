@@ -60,18 +60,21 @@ b.pop_back()删除vector a的最后一个元素。
 
 ## 2. #include \<queue>
     
-头文件queue主要包括循环队列queue和优先队列priority_queue两个容器。
+头文件queue主要包括循环队列queue和优先队列priority_queue两个容器（队列&堆）。
 
 ### 2.1 声明
 ```c++
-queue<int> q;
-struct rec{…}; queue<rec> q;                        //结构体rec中必须定义小于号
+queue<int> q;   // 队列的定义。里面的int可以换成别的东西，比如double, 别的结构体
+struct rec{…}; queue<rec> q;                        // 结构体rec中必须定义小于号
+    
 priority_queue<int> q;                              // 大根堆
 priority_queue<int, vector<int>, greater<int>> q;   // 小根堆
 priority_queue<pair<int, int>>q;
 ```
     
 ### 2.2 循环队列queue
+队列的性质：先进先出。（想象成一个管道）
+
 ```c++
 push    // 从队尾插入
 pop     // 从队头弹出
@@ -80,6 +83,9 @@ back    // 返回队尾元素
 ```
   
 ### 2.3 优先队列priority_queue
+是一个无序的。但是会保存最大值。
+    
+大根堆要重载小于号。小根堆要重载大于号。
 ```c++
 push    // 把元素插入堆
 pop     // 删除堆顶元素
@@ -88,6 +94,7 @@ top     // 查询堆顶元素（最大值）
     
 ## 3. #include \<stack>
 头文件stack包含栈。声明和前面的容器类似。
+先进后出！！！
     
 ```c++
 push    // 向栈顶插入
