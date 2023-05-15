@@ -96,8 +96,98 @@ pop     // 弹出栈顶元素
   
 ## 4. #include \<deque>
 双端队列deque是一个支持在两端高效插入或删除元素的连续线性存储空间。它就像是vector和queue的结合。与vector相比，deque在头部增删元素仅需要 O(1)O(1) 的时间；与queue相比，deque像数组一样支持随机访问。
-    
 ```c++
 []              // 随机访问
-begin/end       // 返回de
+begin/end       // 返回deque的头/尾迭代器
+front/back      // 队头/队尾元素
+push_back       // 从队尾入队
+push_front      // 从队头入队
+pop_back        // 从队尾出队
+pop_front       // 从队头出队
+clear           // 清空队列
 ```
+
+## 5. #include \<set>
+头文件set主要包括set和multiset两个容器，分别是“有序集合”和“有序多重集合”，即前者的元素不能重复，而后者可以包含若干个相等的元素。set和multiset的内部实现是一棵红黑树，它们支持的函数基本相同。
+
+### 5.1 声明
+```c++
+set<int> s;
+struct rec{…}; set<rec> s;  // 结构体rec中必须定义小于号
+multiset<double> s;
+```
+    
+### 5.2 size/empty/clear
+与vector类似
+
+### 5.3 迭代器
+set和multiset的迭代器称为“双向访问迭代器”，不支持“随机访问”，支持星号*解除引用，仅支持++和--两个与算术相关的操作。
+
+设it是一个迭代器，例如set<int>::iterator it;
+
+若把it ++，则it会指向“下一个”元素。这里的“下一个”元素是指在元素从小到大排序的结果中，排在it下一名的元素。同理，若把it --，则it将会指向排在“上一个”的元素。
+
+### 5.4 begin/end
+返回集合的首、尾迭代器，时间复杂度均为 O(1)O(1)。
+
+s.begin()是指向集合中最小元素的迭代器。
+
+s.end()是指向集合中最大元素的下一个位置的迭代器。换言之，就像vector一样，是一个“前闭后开”的形式。因此-- s.end()是指向集合中最大元素的迭代器。
+
+### 5.5 insert
+s.insert(x)把一个元素x插入到集合s中，时间复杂度为 O(logn)O(logn)。
+
+在set中，若元素已存在，则不会重复插入该元素，对集合的状态无影响。
+
+### 5.6 find
+s.find(x)在集合s中查找等于x的元素，并返回指向该元素的迭代器。若不存在，则返回s.end()。时间复杂度为 O(logn)O(logn)。
+
+### 5.7 lower_bound/upper_bound
+这两个函数的用法与find类似，但查找的条件略有不同，时间复杂度为 O(logn)O(logn)。
+
+s.lower_bound(x)查找大于等于x的元素中最小的一个，并返回指向该元素的迭代器。
+
+s.upper_bound(x)查找大于x的元素中最小的一个，并返回指向该元素的迭代器。
+
+### 5.8 erase
+设it是一个迭代器，s.erase(it)从s中删除迭代器it指向的元素，时间复杂度为 O(logn)O(logn)。
+
+设x是一个元素，s.erase(x)从s中删除所有等于x的元素，时间复杂度为 O(k+logn)O(k+logn)，其中 kk 是被删除的元素个数。
+
+### 5.9 count
+s.count(x)返回集合s中等于x的元素个数，时间复杂度为 O(k+logn)O(k+logn)，其中 kk 为元素x的个数。
+
+## 6. #include <map>
+map容器是一个键值对key-value的映射，其内部实现是一棵以key为关键码的红黑树。Map的key和value可以是任意类型，其中key必须定义小于号运算符。
+
+###6.1 声明
+```c++
+map<key_type, value_type> name;
+
+//例如：
+map<long long, bool> vis;
+map<string, int> hash;
+map<pair<int, int>, vector<int>> test;
+```
+    
+### 6.2 size/empty/clear/begin/end
+均与set类似。
+
+### 6.3 insert/erase
+与set类似，但其参数均是pair<key_type, value_type>。
+
+### 6.4 find
+h.find(x)在变量名为h的map中查找key为x的二元组。
+
+### 6.5 []操作符
+h[key]返回key映射的value的引用，时间复杂度为 O(logn)O(logn)。
+
+[]操作符是map最吸引人的地方。我们可以很方便地通过h[key]来得到key对应的value，还可以对h[key]进行赋值操作，改变key对应的value。
+
+作者：yxc
+
+链接：https://www.acwing.com/file_system/file/content/whole/index/content/3598249/
+
+来源：AcWing
+
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
