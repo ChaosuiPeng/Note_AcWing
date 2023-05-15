@@ -1,0 +1,61 @@
+### 29. 删除链表中重复的节点
+在一个排序的链表中，存在重复的节点，请删除该链表中重复的节点，重复的节点不保留。
+
+**数据范围**
+链表中节点 val 值取值范围 [0,100]。
+
+链表长度 [0,100]。
+
+**样例** 
+输入：1->2->3->3->4->4->5
+
+输出：1->2->5
+
+输入：1->1->1->2->3
+
+输出：2->3
+
+### 思路
+为了避免头结点被处理，设一个虚拟节点。
+
+用p、q两个指针，从前往后扫描。
+
+q一直往后扫描，过掉重复的
+
+当q == p->next的时候说明没有重复的一段,不删且p往后走。
+
+否则把q走的那一段都删除，把p-next指向q->next。
+
+### 代码
+```c++
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode(int x) : val(x), next(NULL) {}
+ * };
+ */
+class Solution {
+public:
+    ListNode* deleteDuplication(ListNode* head) {
+        // 为了保证全覆盖（避免头结点被处理），设一个虚拟节点dummy，最后返回是返回dummy->next
+        auto dummy = new ListNode(-1);
+        dummy->next = head;
+        
+        auto p = dummy;
+        while (p->next) // 没有下一个就没必要走了
+        {
+            // 用q扫一下重复的
+            auto q = p->next;   // 初始化q是p的下一个
+            while (q->next && q->next->val == p->next->val) q = q->next; // q有下一个，且q的下一个等于p的下一个
+            
+            // q扫到重复的，把p往后挪一段，没有就把p挪一个
+            if (q == p->next) p = q;
+            else p->next = q->next;
+        }
+        
+        return dummy->next;
+    }
+};
+```
